@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trello Integration App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Trello Integration App</h1>
+    </header>
+    <main>
+        <section id="authentication">
+            <h2>User Authentication</h2>
+            <button id="login-btn">Log in with Trello</button>
+        </section>
+        <section id="board-selection">
+            <h2>Select Board</h2>
+            <select id="board-dropdown" onchange="fetchLists(this.value)">
+                <option>Select a Board</option>
+                <!-- Boards will be added here -->
+            </select>
+        </section>
+        <section id="list-selection">
+            <h2>Select List</h2>
+            <select id="list-dropdown" onchange="fetchCards(this.value)">
+                <option>Select a List</option>
+                <!-- Lists will be added here -->
+            </select>
+        </section>
+        
+        <section id="card-selection">
+            <h2>Select Card</h2>
+            <select id="card-dropdown">
+                <option>Select a Card</option>
+                <!-- Cards will be added here -->
+            </select>
+        </section>
+        
+        <section id="card-update">
+            <h2>Update Card Status</h2>
+            <select id="new-status-dropdown">
+                <option value="">Select New Status</option>
+                <!-- Status options will be added here based on the lists -->
+            </select>
+            <button id="update-card-status">Update Status</button>
+        </section>
+        
+        
+        <section id="notification-settings">
+            <!-- <h2>Notification Settings</h2>-->
+            
+            <form id="settings-form">
+                <!--<label for="event-select">Choose an event:</label>-->
+                <!--
+                <select id="event-select" name="events">
+                    <option value="cardCreated">Card Created</option>
+                    <option value="cardUpdated">Card Updated</option>
+                </select>-->
+                <!-- 
+                <label for="ntfy-url">ntfy Server URL:</label>
+                <input type="url" id="ntfy-url" name="ntfy-url">
+                <button type="submit">Save Settings</button> 
+                
+                -->
+            </form>
+        </section>
+        <!-- 
+        <section id="feedback">
+            <h2>Feedback</h2>
+            <textarea id="feedback-textarea"></textarea>
+            <button id="send-feedback">Send Feedback</button>
+        </section> 
+        
+        -->
+    </main>
+    <footer>
+        <p>&copy; 2024 MJ</p>
+    </footer>
+    <script src="/script.js"></script>        
+</body>
+</html>

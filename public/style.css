@@ -1,14 +1,16 @@
+/* style.css */
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background: #f4f4f4;
+    background: #ede7e7;
 }
 
 header {
-    background: #333;
-    color: #fff;
+    background: #2c6676;
+    color: #bfddde;
     text-align: center;
     padding: 1rem 0;
 }
@@ -18,19 +20,73 @@ h1 {
 }
 
 main {
-    padding: 20px;
+    display: flex; /* Use flexbox for the main container */
+    justify-content: space-around; /* Adjust as needed, e.g., space-between or space-evenly */
+    padding: 100px;
 }
 
 section {
-    margin-bottom: 20px;
-    background: white;
+    flex: 1; /* Allow sections to grow and fill available space */
+    margin: 0 10px; /* Add spacing between sections */
+    background: rgb(200, 181, 181);
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 20px;
+}
+
+/* Add general styling for dropdowns */
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 5px solid #e8eeea;
+    box-sizing: border-box;
+    /*border-radius: 4px;*/
+    border-top-left-radius: 10px;
+}
+
+/* Style the specific dropdowns in your form */
+#board-dropdown,
+#list-dropdown,
+#card-dropdown,
+#new-status-dropdown {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #92de99;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: #e6dfdf;
+    color: #1b1818;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+/* Add styles for buttons */
+button {
+    background-color: #518e53;
+    color: white;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: white;
+    color: #141682;
+}
+/* Add hover effect for buttons */
+button:hover {
+    background-color: #9ec7a0;
 }
 
 footer {
     text-align: center;
     padding: 10px 0;
-    background: #333;
-    color: #fff;
+    /*padding: 1rem 0;*/
+    background: #2c6676;
+    color: #bfddde;
 }

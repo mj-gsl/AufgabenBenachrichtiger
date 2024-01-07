@@ -3,7 +3,7 @@
 let trelloToken;
 
 document.getElementById('login-btn').addEventListener('click', async function() {
-    const key = 'Your Trello API Key'; 
+    const key = '9ab94bc0a68ff724f9f3b6fc7af32e44'; 
     trelloToken = await logInWithTrello(key);
     if (trelloToken) {
         fetchBoards(trelloToken);
@@ -190,7 +190,7 @@ async function notifyNTFY(message, cardName) {
     try {
         const fullMessage = `${message} Card: ${cardName}`; // Include the card name in the message
         const auth = Buffer.from('ntfy:Ibdrb3$8bFjHtS3!j4Ze0FM').toString('base64');
-        const response = await fetch('http://YourNTFYserverIP:8080/Your-Topic', { //Here i change port from 80 to 8080, because i would like to have a Login page for my NTFY server, By default does not support this Option, so i have with Nginx did that, the users can login to my NTFY server only with user and pass!
+        const response = await fetch('http://3.70.155.156:8080/Sima-phone', { //Here i change port from 80 to 8080, because i would like to have a Login page for my NTFY server, By default does not support this Option, so i have with Nginx did that, the users can login to my NTFY server only with user and pass!
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

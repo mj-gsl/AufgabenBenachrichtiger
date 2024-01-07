@@ -19,7 +19,7 @@ app.get('/validate-token', async (req, res) => {
     }
     try {
         // Make a test request to Trello API to check if the token is valid
-        const testResponse = await axios.get(`https://api.trello.com/1/members/me?key=YOUR-API-Key&token=${token}`);
+        const testResponse = await axios.get(`https://api.trello.com/1/members/me?key=9ab94bc0a68ff724f9f3b6fc7af32e44&token=${token}`);
         if (testResponse.status === 200) {
             res.send({ valid: true });
         } else {
@@ -69,7 +69,7 @@ app.get('/fetch-boards', async (req, res) => {
     try {
         // Fetching all boards that the member is associated with.
         // Adjust the API call if you need specific filtering.
-        const response = await axios.get(`https://api.trello.com/1/members/me/boards?filter=open&fields=name,url&key=API-Key&token=${token}`);
+        const response = await axios.get(`https://api.trello.com/1/members/me/boards?filter=open&fields=name,url&key=9ab94bc0a68ff724f9f3b6fc7af32e44&token=${token}`);
         res.json(response.data.filter(board => board.name && !board.closed)); // Example filter for non-closed boards
     } catch (error) {
         res.status(500).send("Error fetching boards: " + error.message);
@@ -79,7 +79,7 @@ app.get('/fetch-boards', async (req, res) => {
 app.get('/fetch-lists', async (req, res) => {
     const { boardId, token } = req.query;
     try {
-        const response = await axios.get(`https://api.trello.com/1/boards/${boardId}/lists?key=API-Key&token=${token}`);
+        const response = await axios.get(`https://api.trello.com/1/boards/${boardId}/lists?key=9ab94bc0a68ff724f9f3b6fc7af32e44&token=${token}`);
         res.json(response.data);
     } catch (error) {
         res.status(500).send("Error fetching lists: " + error.message);
@@ -89,7 +89,7 @@ app.get('/fetch-lists', async (req, res) => {
 app.get('/fetch-cards', async (req, res) => {
     const { listId, token } = req.query;
     try {
-        const response = await axios.get(`https://api.trello.com/1/lists/${listId}/cards?key=API-Key&token=${token}`);
+        const response = await axios.get(`https://api.trello.com/1/lists/${listId}/cards?key=9ab94bc0a68ff724f9f3b6fc7af32e44&token=${token}`);
         res.json(response.data);
     } catch (error) {
         res.status(500).send("Error fetching cards: " + error.message);
@@ -122,7 +122,7 @@ app.put('/update-card-list', async (req, res) => {
     const { cardId, listId, token } = req.query; // You should probably use req.body for PUT requests
     try {
         // Update the card's list on Trello
-        const trelloResponse = await axios.put(`https://api.trello.com/1/cards/${cardId}?idList=${listId}&key=API-Key&token=${token}`);
+        const trelloResponse = await axios.put(`https://api.trello.com/1/cards/${cardId}?idList=${listId}&key=9ab94bc0a68ff724f9f3b6fc7af32e44&token=${token}`);
         
         // Notify via NTFY after successful Trello update
         await notifyNTFY('Card status updated successfully.');
@@ -135,7 +135,7 @@ app.put('/update-card-list', async (req, res) => {
 async function notifyNTFY(message) {
     try {
         const auth = Buffer.from('ntfy:Ibdrb3$8bFjHtS3!j4Ze0FM').toString('base64');
-        const response = await axios.post('http://NTFY-IP-Add:8080/Topic', { message }, {
+        const response = await axios.post('http://3.70.155.156:8080/Sima-phone', { message }, {
             headers: {
                 'Authorization': `Basic ${auth}`
             }
